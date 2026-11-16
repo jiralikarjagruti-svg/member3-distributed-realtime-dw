@@ -1,0 +1,26 @@
+services:
+  citus_master:
+    container_name: citus_master
+    image: citusdata/citus:latest
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_HOST_AUTH_METHOD: trust
+    volumes:
+      - C:/data/output:/data
+  citus_worker1:
+    container_name: citus_worker1
+    image: citusdata/citus:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_HOST_AUTH_METHOD: trust
+  citus_worker2:
+    container_name: citus_worker2
+    image: citusdata/citus:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_HOST_AUTH_METHOD: trust
